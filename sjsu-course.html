@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>SJSU Courses</title>
+
+<script type="text/javascript">
+function remove_from_dom(tag,className) {
+var els = document.getElementsByTagName(tag)
+for (i=0;i<els.length; i++) {
+if (els.item(i).className == className){
+
+els.item(i).style.border="0";
+els.item(i).innerHTML="";
+els.item(i).style.zIndex=-1;
+els.item(i).style.position="absolute";
+//while (els.item(i).firstChild)
+//els.item(i).removeChild(els.item(i).firstChild);
+}
+}
+}
+
+function pdf(div,url,css)
+{close_div=div;
+remove_from_dom('div','pdf')
+document.getElementById(div).innerHTML="<div class='pdf' style='"+css+"'><div style='position: relative; float: right; cursor: pointer; top: 32px;left:-17px; background:white; z-index:1' onclick='document.getElementById(close_div).innerHTML=\"\"'><button style='cursor: pointer'>CLOSE<\/button><\/div><div style='position: absolute; cursor: pointer; top: 30px;left:2px; z-index:1;background:transparent'><div style='display:none; cursor: pointer' id='embedded'><button style='cursor: pointer' onclick='document.getElementById(\"ifr\").src=\"http:\/\/docs.google.com/gview?url="+url+"&amp;embedded=true\";document.getElementById(\"embedded\").style.display=\"none\"; document.getElementById(\"chrome\").style.display=\"inline\"'>View in Basic Mode<\/button><\/div><div id='chrome' style='display: inline; cursor: pointer'><button onclick='document.getElementById(\"ifr\").src=\"http:\/\/docs.google.com/gview?url="+url+"&amp;chrome=true\"; document.getElementById(\"embedded\").style.display=\"inline\"; document.getElementById(\"chrome\").style.display=\"none\"' style='cursor: pointer'>View in Extended Mode<\/button><\/div><\/div><iframe name='ifr' id='ifr' src="+url+" style='position: absolute; width: 100%; height: 100%' frameborder='0'><\/iframe><\/div>"
+}
+</script>
+
+
+
+
+</head>
+
+<body style="font-family: verdana; font-size: 12px"><div>
+
+<div style="background-color:#282828; text-align:center; position:fixed; left:0; top:0; width:100%; z-index: 10000; cursor:default; ">
+<li style="position: relative; display: block; color: #fff; text-decoration: none; outline: 0; "><h1><a href="index.html" style="color:white; text-decoration: none;">Home</a></h1></li>
+</div>
+
+<div id="some_div"></div>
+
+<!-- <a href="javascript: void(0)" onclick="pdf('some_div','http://mesdomaines.nu/eendracht/include_pdf/pdf1.pdf','position: absolute; left: 100px; top: 70px; right: 100px; bottom: 100px; border: 1px solid red; ')">Load PDF in an iframe and put it in a div</a><br><br> -->
+
+
+
+
+<table align="center">
+<tr>
+<td>
+<h3><b>
+<a href="javascript: void(0)" onclick="pdf('some_div2','pdf/sjsu/239.pdf#page=7','position: relative; left: 20px; top: 50px; width: 750px; height: 600px; border: 2px solid black;')">Web and Data Mining</a><br/><br/><br/>
+<a href="javascript: void(0)" onclick="pdf('some_div2','pdf/sjsu/281.pdf#page=3','position: relative; left: 20px; top: 50px; width: 750px; height: 600px; border: 2px solid black;')">Cloud Technologies</a><br/><br/><br/>
+<a href="javascript: void(0)" onclick="pdf('some_div2','pdf/sjsu/283.pdf#page=6','position: relative; left: 20px; top: 50px; width: 750px; height: 600px; border: 2px solid black;')">Virtualization Technologies</a><br/><br/><br/>
+<a href="javascript: void(0)" onclick="pdf('some_div2','pdf/sjsu/202.pdf#page=5','position: relative; left: 20px; top: 50px; width: 750px; height: 600px; border: 2px solid black;')">Software Systems Engineering</a><br/><br/><br/>
+<a href="javascript: void(0)" onclick="pdf('some_div2','pdf/sjsu/273.pdf#page=7','position: relative; left: 20px; top: 50px; width: 750px; height: 600px; border: 2px solid black;')">Enterprise Distributed Systems</a><br/><br/><br/>
+<a href="javascript: void(0)" onclick="pdf('some_div2','pdf/sjsu/275.pdf#page=4','position: relative; left: 20px; top: 50px; width: 750px; height: 600px; border: 2px solid black;')">Enterprise Application Development</a><br/><br/><br/>
+<a href="javascript: void(0)" onclick="pdf('some_div2','pdf/sjsu/272.pdf#page=6','position: relative; left: 20px; top: 50px; width: 750px; height: 600px; border: 2px solid black;')">Enterprise Software Platforms</a><br/><br/><br/>
+</b></h3>
+</td>
+<td><div id="some_div2"><iframe src="iframe.html" style="position: relative; left: 20px; top: 50px; width: 750px; height: 600px; border: 0px solid black;" scrolling="no" frameborder="0" marginwidth="0" marginheight="50" ></iframe></div></td>
+</tr>
+</table>
+
+<br>
+
+
+</div></body>
+
+</html>
